@@ -40,22 +40,34 @@ public class AIEntity : MonoBehaviour {
 	public void ThinkCycle(){
 		activeActionTimer -= Time.deltaTime;
 		if (activeActionTimer <= 0) {
+			
 			if (currentAction == Action.IDLE) {
 				if (currentDetectionStatus == DetectionStatus.UNDETECTED) {
-					GoTo (nextPatrolNode);
+					GoTo (nextPatrolNode());
+					currentAction = Action.PATROL;
 				}
 				if (currentDetectionStatus == DetectionStatus.SUSPICIOUS) {
 					GoTo (lastSeenPlayerPosition);
+					currentAction = Action.INVESTIGATE;
 				}
 				if (currentDetectionStatus == DetectionStatus.DETECTED) {
 					GoTo (lastSeenPlayerPosition);
+					currentAction = Action.HUNT;
 				}
 			}
+
+			if (currentAction == Action.PATROL) {
+				if (!moving) {
+					
+				}
+			}
+
 		}
 	}
 
 	void GoTo(Vector3 loc){
 		agent.destination = loc;
+		moving = true;
 	}
 
 	Vector3 nextPatrolNode(){
@@ -69,7 +81,7 @@ public class AIEntity : MonoBehaviour {
 			}
 			return patrolNodes [currentPatrolNodeIndex];
 		}
-		return null;
+		return Vector3.zero;
 	}
 
 
