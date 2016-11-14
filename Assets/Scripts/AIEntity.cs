@@ -16,7 +16,7 @@ public class AIEntity : MonoBehaviour {
 	public Vector3 lastSeenPlayerPosition;
 	public bool playerSpotted;
 	public AIVision vision;
-
+	public Animator anim;
 
 	//Runtime
 	public NavMeshAgent agent;
@@ -27,6 +27,7 @@ public class AIEntity : MonoBehaviour {
 
 	void Update(){
 		lastSeenPlayerPosition = vision.lastSeen;
+		anim.SetFloat ("speed", agent.velocity.magnitude);
 		spotForgetTimer -= Time.deltaTime;
 		ThinkCycle ();
 		if (spotForgetTimer <= 0) {

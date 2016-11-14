@@ -92,6 +92,8 @@ ModelImporter:
     400082: shoulder.r
     400084: spine
     4300000: Cube
+    7400000: idle
+    7400002: walk
     9500000: //RootNode
     13700000: Cube
   materials:
@@ -114,7 +116,235 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: idle
+      takeName: Armature|idle
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/arm.l.001
+        weight: 1
+      - path: Armature/arm.l.001/arm.l.001_end
+        weight: 1
+      - path: Armature/arm.r.001
+        weight: 1
+      - path: Armature/arm.r.001/arm.r.001_end
+        weight: 1
+      - path: Armature/foot_ik.l
+        weight: 1
+      - path: Armature/foot_ik.l/foot_ik.l_end
+        weight: 1
+      - path: Armature/foot_ik.r
+        weight: 1
+      - path: Armature/foot_ik.r/foot_ik.r_end
+        weight: 1
+      - path: Armature/hand_ik.l
+        weight: 1
+      - path: Armature/hand_ik.l/hand_ik.l_end
+        weight: 1
+      - path: Armature/hand_ik.r
+        weight: 1
+      - path: Armature/hand_ik.r/hand_ik.r_end
+        weight: 1
+      - path: Armature/hip
+        weight: 1
+      - path: Armature/hip/leg.l
+        weight: 1
+      - path: Armature/hip/leg.l/knee.l
+        weight: 1
+      - path: Armature/hip/leg.l/knee.l/foot.l
+        weight: 1
+      - path: Armature/hip/leg.l/knee.l/foot.l/foot.l_end
+        weight: 1
+      - path: Armature/hip/leg.r
+        weight: 1
+      - path: Armature/hip/leg.r/knee.r
+        weight: 1
+      - path: Armature/hip/leg.r/knee.r/foot.r
+        weight: 1
+      - path: Armature/hip/leg.r/knee.r/foot.r/foot.r_end
+        weight: 1
+      - path: Armature/hip/spine
+        weight: 1
+      - path: Armature/hip/spine/chest
+        weight: 1
+      - path: Armature/hip/spine/chest/neck
+        weight: 1
+      - path: Armature/hip/spine/chest/neck/head
+        weight: 1
+      - path: Armature/hip/spine/chest/neck/head/head_end
+        weight: 1
+      - path: Armature/hip/spine/chest/shoulder.l
+        weight: 1
+      - path: Armature/hip/spine/chest/shoulder.l/arm.l
+        weight: 1
+      - path: Armature/hip/spine/chest/shoulder.l/arm.l/forearm.l
+        weight: 1
+      - path: Armature/hip/spine/chest/shoulder.l/arm.l/forearm.l/hand.l
+        weight: 1
+      - path: Armature/hip/spine/chest/shoulder.l/arm.l/forearm.l/hand.l/hand.l_end
+        weight: 1
+      - path: Armature/hip/spine/chest/shoulder.r
+        weight: 1
+      - path: Armature/hip/spine/chest/shoulder.r/arm.r
+        weight: 1
+      - path: Armature/hip/spine/chest/shoulder.r/arm.r/forearm.r
+        weight: 1
+      - path: Armature/hip/spine/chest/shoulder.r/arm.r/forearm.r/hand.r
+        weight: 1
+      - path: Armature/hip/spine/chest/shoulder.r/arm.r/forearm.r/hand.r/hand.r_end
+        weight: 1
+      - path: Armature/knee_ik.l
+        weight: 1
+      - path: Armature/knee_ik.l/knee_ik.l_end
+        weight: 1
+      - path: Armature/knee_ik.r
+        weight: 1
+      - path: Armature/knee_ik.r/knee_ik.r_end
+        weight: 1
+      - path: Cube
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: walk
+      takeName: Armature|walk
+      firstFrame: 0
+      lastFrame: 19
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/arm.l.001
+        weight: 1
+      - path: Armature/arm.l.001/arm.l.001_end
+        weight: 1
+      - path: Armature/arm.r.001
+        weight: 1
+      - path: Armature/arm.r.001/arm.r.001_end
+        weight: 1
+      - path: Armature/foot_ik.l
+        weight: 1
+      - path: Armature/foot_ik.l/foot_ik.l_end
+        weight: 1
+      - path: Armature/foot_ik.r
+        weight: 1
+      - path: Armature/foot_ik.r/foot_ik.r_end
+        weight: 1
+      - path: Armature/hand_ik.l
+        weight: 1
+      - path: Armature/hand_ik.l/hand_ik.l_end
+        weight: 1
+      - path: Armature/hand_ik.r
+        weight: 1
+      - path: Armature/hand_ik.r/hand_ik.r_end
+        weight: 1
+      - path: Armature/hip
+        weight: 1
+      - path: Armature/hip/leg.l
+        weight: 1
+      - path: Armature/hip/leg.l/knee.l
+        weight: 1
+      - path: Armature/hip/leg.l/knee.l/foot.l
+        weight: 1
+      - path: Armature/hip/leg.l/knee.l/foot.l/foot.l_end
+        weight: 1
+      - path: Armature/hip/leg.r
+        weight: 1
+      - path: Armature/hip/leg.r/knee.r
+        weight: 1
+      - path: Armature/hip/leg.r/knee.r/foot.r
+        weight: 1
+      - path: Armature/hip/leg.r/knee.r/foot.r/foot.r_end
+        weight: 1
+      - path: Armature/hip/spine
+        weight: 1
+      - path: Armature/hip/spine/chest
+        weight: 1
+      - path: Armature/hip/spine/chest/neck
+        weight: 1
+      - path: Armature/hip/spine/chest/neck/head
+        weight: 1
+      - path: Armature/hip/spine/chest/neck/head/head_end
+        weight: 1
+      - path: Armature/hip/spine/chest/shoulder.l
+        weight: 1
+      - path: Armature/hip/spine/chest/shoulder.l/arm.l
+        weight: 1
+      - path: Armature/hip/spine/chest/shoulder.l/arm.l/forearm.l
+        weight: 1
+      - path: Armature/hip/spine/chest/shoulder.l/arm.l/forearm.l/hand.l
+        weight: 1
+      - path: Armature/hip/spine/chest/shoulder.l/arm.l/forearm.l/hand.l/hand.l_end
+        weight: 1
+      - path: Armature/hip/spine/chest/shoulder.r
+        weight: 1
+      - path: Armature/hip/spine/chest/shoulder.r/arm.r
+        weight: 1
+      - path: Armature/hip/spine/chest/shoulder.r/arm.r/forearm.r
+        weight: 1
+      - path: Armature/hip/spine/chest/shoulder.r/arm.r/forearm.r/hand.r
+        weight: 1
+      - path: Armature/hip/spine/chest/shoulder.r/arm.r/forearm.r/hand.r/hand.r_end
+        weight: 1
+      - path: Armature/knee_ik.l
+        weight: 1
+      - path: Armature/knee_ik.l/knee_ik.l_end
+        weight: 1
+      - path: Armature/knee_ik.r
+        weight: 1
+      - path: Armature/knee_ik.r/knee_ik.r_end
+        weight: 1
+      - path: Cube
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
