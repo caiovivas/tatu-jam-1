@@ -4,7 +4,6 @@ using System.Collections;
 public class AIEntity : MonoBehaviour {
 	public enum Action{
 		PATROL,
-		INVESTIGATE,
 		HUNT,
 		IDLE,
 		STUNNED
@@ -15,12 +14,8 @@ public class AIEntity : MonoBehaviour {
 	public Vector3[] patrolNodes;
 	public bool randomPatrolOrder;
 	public Vector3 lastSeenPlayerPosition;
-	public enum DetectionStatus{
-		UNDETECTED,
-		SUSPICIOUS,
-		DETECTED
-	}
-	public DetectionStatus currentDetectionStatus;
+	public bool playerSpotted;
+	public AIVision vision;
 
 
 	//Runtime
@@ -28,37 +23,41 @@ public class AIEntity : MonoBehaviour {
 	float activeActionTimer;
 	bool moving;
 	int currentPatrolNodeIndex;
+	float spotForgetTimer;
 
 	void Update(){
+		lastSeenPlayerPosition = vision.lastSeen;
+		spotForgetTimer -= Time.deltaTime;
 		ThinkCycle ();
-
-		if (Vector3.Distance (transform.position, agent.destination) <= 0.3f) {
+		if (spotForgetTimer <= 0) {
+			playerSpotted = false;
+		}
+		if (vision.playerOnView)
+			playerSpotted = true;
+		if (Vector3.Distance (transform.position, agent.destination) <= 1f) {
 			moving = false;
 		}
 	}
 
 	public void ThinkCycle(){
 		activeActionTimer -= Time.deltaTime;
-		if (activeActionTimer <= 0) {
-			
-			if (currentAction == Action.IDLE) {
-				if (currentDetectionStatus == DetectionStatus.UNDETECTED) {
-					GoTo (nextPatrolNode());
-					currentAction = Action.PATROL;
-				}
-				if (currentDetectionStatus == DetectionStatus.SUSPICIOUS) {
-					GoTo (lastSeenPlayerPosition);
-					currentAction = Action.INVESTIGATE;
-				}
-				if (currentDetectionStatus == DetectionStatus.DETECTED) {
-					GoTo (lastSeenPlayerPosition);
-					currentAction = Action.HUNT;
-				}
+		if (activeActionTimer <= 0 || playerSpotted) {
+			if (playerSpotted) {
+				GoTo (lastSeenPlayerPosition);
+				currentAction = Action.HUNT;
+				return;
+			}
+			if (currentAction == Action.IDLE || currentAction == Action.HUNT) {
+				GoTo (NextPatrolNode());
+				currentAction = Action.PATROL;
+				return;
 			}
 
 			if (currentAction == Action.PATROL) {
 				if (!moving) {
-					
+					currentAction = Action.IDLE;
+					activeActionTimer = idleTime;
+					return;
 				}
 			}
 
@@ -70,7 +69,7 @@ public class AIEntity : MonoBehaviour {
 		moving = true;
 	}
 
-	Vector3 nextPatrolNode(){
+	Vector3 NextPatrolNode(){
 		if (randomPatrolOrder) {
 			return patrolNodes [Random.Range (0, patrolNodes.Length)];
 		} else {
