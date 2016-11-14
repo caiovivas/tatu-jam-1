@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{7DD2CD04-733D-1881-D3A8-5658174A9BA2}") = "TatuJam1", "Assembly-CSharp.csproj", "{61D1559F-86C9-B0A9-F306-6F0EB02FF65D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{61D1559F-86C9-B0A9-F306-6F0EB02FF65D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61D1559F-86C9-B0A9-F306-6F0EB02FF65D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61D1559F-86C9-B0A9-F306-6F0EB02FF65D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61D1559F-86C9-B0A9-F306-6F0EB02FF65D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
