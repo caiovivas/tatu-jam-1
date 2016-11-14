@@ -39,18 +39,19 @@ public class AIEntity : MonoBehaviour {
 
 	public void ThinkCycle(){
 		activeActionTimer -= Time.deltaTime;
-
-		if (currentAction == Action.IDLE) {
-			if (activeActionTimer <= 0) {
+		if (activeActionTimer <= 0) {
+			if (currentAction == Action.IDLE) {
 				if (currentDetectionStatus == DetectionStatus.UNDETECTED) {
+					GoTo (nextPatrolNode);
 				}
 				if (currentDetectionStatus == DetectionStatus.SUSPICIOUS) {
+					GoTo (lastSeenPlayerPosition);
 				}
 				if (currentDetectionStatus == DetectionStatus.DETECTED) {
+					GoTo (lastSeenPlayerPosition);
 				}
 			}
 		}
-
 	}
 
 	void GoTo(Vector3 loc){
@@ -58,6 +59,17 @@ public class AIEntity : MonoBehaviour {
 	}
 
 	Vector3 nextPatrolNode(){
+		if (randomPatrolOrder) {
+			return patrolNodes [Random.Range (0, patrolNodes.Length)];
+		} else {
+			if (currentPatrolNodeIndex == patrolNodes.Length - 1) {
+				currentPatrolNodeIndex = 0;
+			} else {
+				currentPatrolNodeIndex++;
+			}
+			return patrolNodes [currentPatrolNodeIndex];
+		}
+		return null;
 	}
 
 
