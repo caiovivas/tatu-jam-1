@@ -13,17 +13,17 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Update(){
-		rot += Input.GetAxis ("Horizontal") * Time.deltaTime * 10f;
-		if(rot < 0)
-			rot += Time.deltaTime*5f;
-		if(rot > 0)
-			rot -= Time.deltaTime*5f;
-		if (rot < -5) {
-			rot = -5;
-		} else if (rot > 5) {
-			rot = 5;
+		rot += Input.GetAxisRaw ("Horizontal") * Time.deltaTime * 15f;
+		if(rot < 0 && Input.GetAxisRaw ("Horizontal") >= -0.5 && Input.GetAxisRaw ("Horizontal") <= 0.5)
+			rot += Time.deltaTime*15f;
+		if(rot > 0 && Input.GetAxisRaw ("Horizontal") >= -0.5 && Input.GetAxisRaw ("Horizontal") <= 0.5)
+			rot -= Time.deltaTime*15f;
+		if (rot < -2) {
+			rot = -2;
+		} else if (rot > 2) {
+			rot = 2;
 		}
-		transform.RotateAround (transform.position, Vector3.up, rot);
+		transform.RotateAround (transform.position, Vector3.up, rot * 2);
 		anim.SetFloat("speed", rb.velocity.magnitude);
 		if (rb.velocity.magnitude <= maxSpeed) {
 			rb.AddForce (transform.forward * Time.deltaTime * 1000f * Input.GetAxis ("Vertical"));
