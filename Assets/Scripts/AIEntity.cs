@@ -25,6 +25,11 @@ public class AIEntity : MonoBehaviour {
 	int currentPatrolNodeIndex;
 	float spotForgetTimer;
 
+	void Start(){
+		vision = GetComponentInChildren<AIVision> ();
+		agent = GetComponent<NavMeshAgent> ();
+	}
+
 	void Update(){
 		lastSeenPlayerPosition = vision.lastSeen;
 		anim.SetFloat ("speed", agent.velocity.magnitude);
